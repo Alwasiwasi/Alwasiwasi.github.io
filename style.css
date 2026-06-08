@@ -456,6 +456,20 @@ header {
         display: block;
     }
 
+        /* Tambahkan baris ini untuk memposisikan tombol ke tengah */
+    .btn-group {
+        justify-content: center;
+        width: 100%; /* Memastikan wadahnya ambil ruang penuh di tengah */
+    }
+
+    /* Menengahkan tombol di bagian CTA jika dia berdiri sendiri */
+    .cta-text .btn, 
+    .cta-text .btn-white {
+        margin: 0 auto;
+        display: inline-flex;
+        justify-content: center;
+    }
+
     .cta-box { padding: 40px 20px; }
     .cta-text { margin-bottom: 30px; }
     .guarantees { justify-content: center; flex-wrap: wrap; }
