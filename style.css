@@ -132,6 +132,29 @@ header {
     opacity: 0.9;
 }
 
+/* --- Penambahan Wadah Tombol & Tombol WA --- */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Biar turun ke bawah kalau layarnya sempit */
+}
+
+.btn-wa {
+    background-color: #25D366; /* Warna Hijau khas WhatsApp */
+    color: white;
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    animation: pulse 2s infinite;
+}
+
+.btn-buy {
+    animation: pulse 2s infinite;
+}
+
+.btn-wa:hover {
+    background-color: #1ebe57; /* Warna hijau sedikit lebih gelap saat di-hover */
+    opacity: 1; /* Override opacity dari .btn:hover */
+}
+
 .hero-image {
     width: 50%;
     display: flex;
@@ -258,45 +281,13 @@ header {
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    width: 100%;
 }
 
-.product-card {
-    border-radius: 15px;
-    padding: 30px 20px;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    gap: 20px;
+.product-grid {
+    width: 100%;
+    object-fit: cover;
 }
-
-.product-card img {
-    width: 80px;
-    object-fit: contain;
-}
-
-.product-card h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-.product-card p {
-    font-size: 12px;
-    color: var(--text-gray);
-    line-height: 1.5;
-}
-
-.bg-original { background-color: var(--card-original); }
-.bg-freesia { background-color: var(--card-freesia); }
-.bg-ocean { background-color: var(--card-ocean); }
-
-.text-original { color: #8c7e6c; }
-.text-freesia { color: #d67a9a; }
-.text-ocean { color: #5b87a4; }
-
 /* --- TESTIMONIALS --- */
 .testimonials {
     padding: 80px 0;
@@ -384,6 +375,14 @@ header {
 .btn-white {
     background-color: white;
     color: var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .guarantees {
@@ -433,7 +432,7 @@ header {
         text-align: center;
     }
 
-    .hero-text, .hero-image, .why-text, .why-icons, .why-image, .cta-text, .cta-image {
+    .hero-text, .hero-image, .why-text, .why-icons, .why-image, .product-grid, .cta-text, .cta-image {
         width: 100%;
     }
 
@@ -451,8 +450,8 @@ header {
     .why-text .line { margin: 0 auto 20px; }
     
     /* Batasi ukuran gambar biar nggak raksasa pas numpuk di tengah */
-    .why-image img, .cta-image img {
-        max-width: 350px;
+    .why-image img, .product-grid img, .cta-image img {
+        max-width: 250px;
         margin: 0 auto;
         display: block;
     }
@@ -483,6 +482,12 @@ header {
         grid-template-columns: 1fr;
     }
 
+    /* Khusus why-icons tetap dibikin 2 baris 2 kolom */
+    .why-icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px; /* Jarak antar icon dikurangin sedikit biar gak kepenuhan di layar HP */
+    }
+
     /* Rapihin icon garansi di footer */
     .guarantees { 
         flex-direction: column; 
@@ -500,10 +505,15 @@ header {
 @media (max-width: 480px) {
     .hero-text h2 { font-size: 26px; }
     .cta-text h2 { font-size: 22px; }
+
+    /* Bikin tombol full width dan turun ke bawah biar gampang di tap pakai jempol */
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
     
-    /* Bikin tombol full width biar gampang di tap pakai jempol */
     .btn { 
         width: 100%; 
         justify-content: center; 
-    } 
+    }
 }
